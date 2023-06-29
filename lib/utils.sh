@@ -23,4 +23,5 @@ _kc_asdf_custom_env() {
   ## https://github.com/cloudflare/cloudflared/issues/1004
   kc_asdf_is_darwin &&
     export ASDF_INSECURE=true
+  return 0
 }
