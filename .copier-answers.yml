@@ -1,0 +1,43 @@
+---
+## Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v1.3.3-39-ge7dbd55
+_src_path: /Users/kamontat/Desktop/Personal/asdf-plugin-template
+app_desc: A command-line client for Cloudflare Tunnel
+app_name: cloudflared
+app_repo: https://github.com/cloudflare/cloudflared
+app_website: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide
+archive_conf_path: ''
+archive_conf_strip: 0
+archive_enabled: true
+archive_regex: (\.tar\.gz|\.tgz|\.zip)$
+checksum_conf_algorithm: 256
+checksum_enabled: true
+checksum_url: https://api.github.com/repos/cloudflare/cloudflared/releases/tags/{version}
+custom_arch_enabled: true
+custom_arch_yaml:
+    armv5*: armv5
+    armv6*: armv6
+    armv7*: armv7
+    i386: '386'
+    i686: '386'
+    x86: '386'
+    x86_64: amd64
+custom_bin_paths: bin
+custom_non_stable_version: (-src|-dev|-latest|-stm|[-\.]rc|-alpha|-beta|[-\.]pre|-next|snapshot|master)
+custom_os_enabled: false
+custom_require_commands: ''
+download_url: https://github.com/cloudflare/cloudflared/releases/download/{version}/cloudflared-{os}-{arch}$(download_ext)
+gpg_enabled: false
+install_map_enabled: true
+install_map_method: move
+install_map_yaml:
+    cloudflared: bin/cloudflared
+package_enabled: false
+plugin_author: Kamontat Chantrachirathumrong
+plugin_name: asdf-cloudflared
+plugin_org: kc-workspace
+plugin_repo: https://github.com/kc-workspace/asdf-cloudflared.git
+source_enabled: false
+test_cmd_args: --version
+version_file_enabled: false
+version_prefix: ''
