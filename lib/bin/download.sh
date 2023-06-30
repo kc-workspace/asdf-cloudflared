@@ -61,12 +61,14 @@ __asdf_bin() {
   command -v _kc_asdf_custom_post_download >/dev/null &&
     kc_asdf_debug "$ns" "developer has post download function defined" &&
     _kc_asdf_custom_post_download "$version" "$download_url" "$tmppath"
-  local checksum_url
-  checksum_url="https://api.github.com/repos/cloudflare/cloudflared/releases/tags/{version}"
-  checksum_url="$(kc_asdf_template "$checksum_url" "${vars[@]}")"
-  kc_asdf_step "checksum" "$tmpfile" \
-    kc_asdf_checksum "$tmppath" "$checksum_url" ||
-    return 1
+  if kc_asdf_enabled_feature checksum; then
+    local checksum_url
+    checksum_url="https://api.github.com/repos/cloudflare/cloudflared/releases/tags/{version}"
+    checksum_url="$(kc_asdf_template "$checksum_url" "${vars[@]}")"
+    kc_asdf_step "checksum" "$tmpfile" \
+      kc_asdf_checksum "$tmppath" "$checksum_url" ||
+      return 1
+  fi
 
   local mode
   mode="$(kc_asdf_download_mode "$tmpfile")"
