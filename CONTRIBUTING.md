@@ -96,7 +96,7 @@ _kc_asdf_custom_env() {
 }
 ```
 
-4. To custom enabled-disable features, use `_kc_asdf_custom_enabled_features()`
+4. To custom enable-disable features, use `_kc_asdf_custom_enabled_features()`
 
 ```bash
 ## If this return error, mean that feature is disabled

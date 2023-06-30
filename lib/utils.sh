@@ -20,19 +20,14 @@ _kc_asdf_custom_arch() {
 }
 
 _kc_asdf_custom_enabled_features() {
+  local ns="feature-custom.utils"
   local feature="$1"
 
   ## https://github.com/cloudflare/cloudflared/issues/1004
-  [[ "$feature" == "checksum" ]] &&
-    kc_asdf_is_darwin &&
+  if [[ "$feature" == "checksum" ]] && kc_asdf_is_darwin; then
+    kc_asdf_debug "$ns" "disable %s feature on macOS because %s" \
+      "$feature" "https://github.com/cloudflare/cloudflared/issues/1004"
     return 1
-
-  return 0
-}
-
-_kc_asdf_custom_env() {
-  ## https://github.com/cloudflare/cloudflared/issues/1004
-  kc_asdf_is_darwin &&
-    export ASDF_INSECURE=true
+  fi
   return 0
 }
