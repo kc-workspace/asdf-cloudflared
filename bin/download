@@ -20,8 +20,7 @@ _kc_asdf_custom_checksum() {
   local checksum_tmp="$3"
 
   grep -oE "${filename}[:]?\s+([^ \]+)" "$checksum_tmp" |
-    sed "s/$filename//" |
-    tr -d ' ' |
+    sed "s/${filename}[: ]*//" |
     xargs echo -n
   "$create" "$filename"
 }
