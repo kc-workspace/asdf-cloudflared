@@ -12,18 +12,18 @@
 # }
 
 _kc_asdf_custom_checksum() {
+  ## create function (create "<filename>" "<checksum>")
+  local create="$1"
   ## filename is app file to check
-  local filename="$1"
+  local filename="$2"
   ## checksum_tmp is a raw checksum file from url
-  local checksum_tmp="$2"
-  ## checksum_path is a output normalize checksum file
-  local checksum_path="$3"
+  local checksum_tmp="$3"
 
   grep -oE "$filename\s+([^ \]+)" "$checksum_tmp" |
     sed "s/$filename//" |
     tr -d ' ' |
-    xargs echo -n >"$checksum_path"
-  echo "  $filename" >>"$checksum_path"
+    xargs echo -n
+  "$create" "$filename"
 }
 
 ## -----------------------
