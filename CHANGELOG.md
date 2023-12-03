@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/kc-workspace/asdf-cloudflared/compare/v1.0.0...v1.0.1) (2023-12-03)
+
+
+### Improvements
+
+* update plugin from template [autocommit] ([06ffb07](https://github.com/kc-workspace/asdf-cloudflared/commit/06ffb0733ee5766177905623324a2e32f300d68e))
+* update plugin from template [autocommit] ([874774b](https://github.com/kc-workspace/asdf-cloudflared/commit/874774bca802f2eb6f27ad277589a09b72aefb34))
+
 ## 1.0.0 (2023-09-17)
 
 
