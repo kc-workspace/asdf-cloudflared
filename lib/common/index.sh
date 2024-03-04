@@ -19,10 +19,14 @@ KC_ASDF_APP_TYPE="standalone"
 KC_ASDF_APP_NAME="cloudflared"
 KC_ASDF_APP_WEBS="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/tunnel-guide"
 KC_ASDF_APP_DESC="A command-line client for Cloudflare Tunnel"
+KC_ASDF_APP_CMDS="
+- test    - test if cli exist and executable
+- version - print *plugin* version
+"
 KC_ASDF_APP_REPO="https://github.com/cloudflare/cloudflared"
 export KC_ASDF_APP_TYPE KC_ASDF_APP_NAME
 export KC_ASDF_APP_WEBS KC_ASDF_APP_DESC
-export KC_ASDF_APP_REPO
+export KC_ASDF_APP_CMDS KC_ASDF_APP_REPO
 
 # shellcheck source-path=SCRIPTDIR/internal.sh
 source "${KC_ASDF_PLUGIN_PATH:?}/lib/common/internal.sh" || exit 1
