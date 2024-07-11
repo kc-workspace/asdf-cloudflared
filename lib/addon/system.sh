@@ -27,16 +27,22 @@ kc_asdf_get_os() {
 ## Is current OS is macOS
 ## usage: `kc_asdf_is_darwin`
 kc_asdf_is_darwin() {
-  local os="${KC_ASDF_OS}" custom=""
+  local ns="os.addon"
+  local os custom=""
+  os="$(kc_asdf_get_os)"
   local darwin="${custom:-darwin}"
+  kc_asdf_debug "$ns" "checking current os (%s) should be %s" "$os" "$darwin"
   [[ "$os" == "$darwin" ]]
 }
 
 ## Is current OS is LinuxOS
 ## usage: `kc_asdf_is_linux`
 kc_asdf_is_linux() {
-  local os="${KC_ASDF_OS}" custom=""
+  local ns="os.addon"
+  local os custom=""
+  os="$(kc_asdf_get_os)"
   local linux="${custom:-linux}"
+  kc_asdf_debug "$ns" "checking current os (%s) should be %s" "$os" "$linux"
   [[ "$os" == "$linux" ]]
 }
 
@@ -49,11 +55,9 @@ kc_asdf_get_arch() {
   local arch="${ASDF_OVERRIDE_ARCH:-}"
   if [ -n "$arch" ]; then
     kc_asdf_warn "$ns" "user overriding arch to '%s'" "$arch"
-    printf "%s" "$arch"
-    return 0
+  else
+    arch="$(uname -m)"
   fi
-
-  arch="$(uname -m)"
   case "$arch" in
   aarch64*)
     arch="arm64"
